@@ -4,7 +4,7 @@
   "description": "文件服务器，包含文件浏览和下载",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./index.js"
   },
   "keywords": [
     "fileserver"

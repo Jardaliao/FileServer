@@ -5,6 +5,13 @@ const ejs = require('ejs')
 
 const app = new express()
 
+/**
+ * 设置映射路径
+ * Windos：C:\\Windows\\user\\somebody\\Downloads
+ */
+let location = "D:\\Downloads";
+if (!location) location = __dirname; 
+
 app.get("/*", function (req, res, next) {
     const last = req.path.charAt(req.path.length - 1);
     let curPath;
@@ -14,7 +21,7 @@ app.get("/*", function (req, res, next) {
         curPath = req.path + '/';
     }
     // 1. 假设是文件请求
-    const filePath = path.join(__dirname, curPath);
+    const filePath = path.join(location, curPath);
     const exist = fs.existsSync(filePath);
     if (exist) {
         const fileName = req.path.split('/').pop();
@@ -34,7 +41,7 @@ app.get("/*", function (req, res, next) {
     }
 
     // 2. 不是文件，是目录
-    let dirPath = path.join(__dirname, req.path);
+    let dirPath = path.join(location, req.path);
     fs.readdir(dirPath, function (err, fileArr) {
         if (err) {
             console.error(err)
@@ -65,7 +72,6 @@ app.get("/*", function (req, res, next) {
         }
 
         ejs.renderFile('files.ejs', { files: files, dirs: dirs, path: curPath, prePath: prePath }, function (err, str) {
-            // console.log(str)
             res.send(str)
         });
     });

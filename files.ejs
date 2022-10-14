@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FileServer</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ul {
+            width: 80%;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            padding: 5px 20px;
+            list-style: none;
+            border-bottom: 1px solid #eee;
+        }
+
+        li:hover {
+            background-color: whitesmoke;
+        }
+
+        a {
+            padding-left: 10px;
+            text-decoration: none;
+            color: black;
+        }
+
+        a:hover {
+            color: rgb(204, 102, 51);
+        }
+
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <a href="<%- prePath %>">..返回上一级</a>
+        </li>
+        <% dirs.forEach(function(dire){ %>
+            <li>
+                <img src="/24gf-folderOpen.png" alt=""> <a class="directory" href="<%- path + dire %>">
+                    <%- dire %>
+                </a>
+            </li>
+            <%})%>
+                <% files.forEach(function(file){ %>
+                    <li>
+                    <img src="/file.png" alt="">
+                        <a class="file" href="<%- path + file %>">
+                            <%- file %>
+                        </a>
+                    </li>
+                    <%})%>
+    </ul>
+</body>
+
+</html>

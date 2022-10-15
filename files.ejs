@@ -3,7 +3,8 @@
 
 <head>
     <title>FileServer</title>
-    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAfRJREFUWEfN1ztoFFEUxvH/N6vYiBBBu4BFMrsGCxHSaBUQtQjYpEjAwmgnmlkfoF3ETgszN4IhICqISLDTSkQQFKMg2ChxNzaCbcRGoqL3yGZXNxEMs4/czRRTnXu+35zLvESHD3U4nyWAzZ/q42du+2oY7UyfrgVWVk5uYRzN0PwVkU6rN53NUJu5RFZKLHM1LOA11M5pNAqoWr0G2oVoDlBDNDA52KhP6pn48O+a5gENpdeKxW3FbnT50rAAQHm34tZfl4AfiBfNTDjLGsVu4P9b4DXKZs2oe2IxS7N21CzfgifKu/1WSu4Bw+1ovmoP6SGRztQBZsfI5b7i/cyah9cDrtcBke/BR0XgZDCA2c0qwJhVwe21UvIG2B0MgI1UAeIyiu7g/dtw4ZWkDdtqAA3ifTfSVDiAXiuf9te2YNMW9H0aGAkGkK4oTs/LysVHitODVkoWgK3BAL84oD73WFYeO4fxEvQsWLj4oth1VfIqW9CP2SGkS8EAxgMV3OElQOVkpeQ5sC8YAJ1VPr1ancDHC118W/wcLhyI/B71Xqs8c5DNF4fwdj8YQLxT7Hb9yZO9T24gjgcETCl2J+qAubGLRBoPBoBh5d3fF55srriDnI1n/DdozWl2V4XJIys+SFrr2Prq9fFv2Pp1NN+h4xP4DWxfuExBck0eAAAAAElFTkSuQmCC">
+    <link rel="icon"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAfRJREFUWEfN1ztoFFEUxvH/N6vYiBBBu4BFMrsGCxHSaBUQtQjYpEjAwmgnmlkfoF3ETgszN4IhICqISLDTSkQQFKMg2ChxNzaCbcRGoqL3yGZXNxEMs4/czRRTnXu+35zLvESHD3U4nyWAzZ/q42du+2oY7UyfrgVWVk5uYRzN0PwVkU6rN53NUJu5RFZKLHM1LOA11M5pNAqoWr0G2oVoDlBDNDA52KhP6pn48O+a5gENpdeKxW3FbnT50rAAQHm34tZfl4AfiBfNTDjLGsVu4P9b4DXKZs2oe2IxS7N21CzfgifKu/1WSu4Bw+1ovmoP6SGRztQBZsfI5b7i/cyah9cDrtcBke/BR0XgZDCA2c0qwJhVwe21UvIG2B0MgI1UAeIyiu7g/dtw4ZWkDdtqAA3ifTfSVDiAXiuf9te2YNMW9H0aGAkGkK4oTs/LysVHitODVkoWgK3BAL84oD73WFYeO4fxEvQsWLj4oth1VfIqW9CP2SGkS8EAxgMV3OElQOVkpeQ5sC8YAJ1VPr1ancDHC118W/wcLhyI/B71Xqs8c5DNF4fwdj8YQLxT7Hb9yZO9T24gjgcETCl2J+qAubGLRBoPBoBh5d3fF55srriDnI1n/DdozWl2V4XJIys+SFrr2Prq9fFv2Pp1NN+h4xP4DWxfuExBck0eAAAAAElFTkSuQmCC">
     <style>
         body {
             padding: 0;
@@ -39,31 +40,66 @@
         a:hover {
             color: rgb(204, 102, 51);
         }
-
     </style>
 </head>
 
-<body>
+<body id="body">
     <ul>
         <li>
             <a href="<%- prePath %>">..返回上一级</a>
         </li>
         <% dirs.forEach(function(dire){ %>
             <li>
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAfRJREFUWEfN1ztoFFEUxvH/N6vYiBBBu4BFMrsGCxHSaBUQtQjYpEjAwmgnmlkfoF3ETgszN4IhICqISLDTSkQQFKMg2ChxNzaCbcRGoqL3yGZXNxEMs4/czRRTnXu+35zLvESHD3U4nyWAzZ/q42du+2oY7UyfrgVWVk5uYRzN0PwVkU6rN53NUJu5RFZKLHM1LOA11M5pNAqoWr0G2oVoDlBDNDA52KhP6pn48O+a5gENpdeKxW3FbnT50rAAQHm34tZfl4AfiBfNTDjLGsVu4P9b4DXKZs2oe2IxS7N21CzfgifKu/1WSu4Bw+1ovmoP6SGRztQBZsfI5b7i/cyah9cDrtcBke/BR0XgZDCA2c0qwJhVwe21UvIG2B0MgI1UAeIyiu7g/dtw4ZWkDdtqAA3ifTfSVDiAXiuf9te2YNMW9H0aGAkGkK4oTs/LysVHitODVkoWgK3BAL84oD73WFYeO4fxEvQsWLj4oth1VfIqW9CP2SGkS8EAxgMV3OElQOVkpeQ5sC8YAJ1VPr1ancDHC118W/wcLhyI/B71Xqs8c5DNF4fwdj8YQLxT7Hb9yZO9T24gjgcETCl2J+qAubGLRBoPBoBh5d3fF55srriDnI1n/DdozWl2V4XJIys+SFrr2Prq9fFv2Pp1NN+h4xP4DWxfuExBck0eAAAAAElFTkSuQmCC" alt=""> <a class="directory" href="<%- path + dire %>">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAfRJREFUWEfN1ztoFFEUxvH/N6vYiBBBu4BFMrsGCxHSaBUQtQjYpEjAwmgnmlkfoF3ETgszN4IhICqISLDTSkQQFKMg2ChxNzaCbcRGoqL3yGZXNxEMs4/czRRTnXu+35zLvESHD3U4nyWAzZ/q42du+2oY7UyfrgVWVk5uYRzN0PwVkU6rN53NUJu5RFZKLHM1LOA11M5pNAqoWr0G2oVoDlBDNDA52KhP6pn48O+a5gENpdeKxW3FbnT50rAAQHm34tZfl4AfiBfNTDjLGsVu4P9b4DXKZs2oe2IxS7N21CzfgifKu/1WSu4Bw+1ovmoP6SGRztQBZsfI5b7i/cyah9cDrtcBke/BR0XgZDCA2c0qwJhVwe21UvIG2B0MgI1UAeIyiu7g/dtw4ZWkDdtqAA3ifTfSVDiAXiuf9te2YNMW9H0aGAkGkK4oTs/LysVHitODVkoWgK3BAL84oD73WFYeO4fxEvQsWLj4oth1VfIqW9CP2SGkS8EAxgMV3OElQOVkpeQ5sC8YAJ1VPr1ancDHC118W/wcLhyI/B71Xqs8c5DNF4fwdj8YQLxT7Hb9yZO9T24gjgcETCl2J+qAubGLRBoPBoBh5d3fF55srriDnI1n/DdozWl2V4XJIys+SFrr2Prq9fFv2Pp1NN+h4xP4DWxfuExBck0eAAAAAElFTkSuQmCC"
+                    alt=""> <a class="directory" href="<%- path + dire %>">
                     <%- dire %>
                 </a>
             </li>
             <%})%>
                 <% files.forEach(function(file){ %>
                     <li>
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAY9JREFUWEftl79Kw1AUxr+T2ldwEJzcdNAmODgIFYS0PkCnSOLkY1SfwL2LtthFcRONILSDuKjppJNjNx+hNkdubSA0/0xyi6C548m55/y+74SbXELE6tiDEwY3ACxF5YTFzZpKIt62HWbiQ0vXWnH7J8mzq207jwC20jT2cv0Akxjh0tRVISR0BQDad4MmmI+yNBd7AgAJEEEA23kHsCIVIAYiDICzNhf7Sm5p2dhbH4p3IFAnZBzSAZjIsPRKN2qU3og8OPkAzF2rrhk/dVE6wPe46YyJrkx94zoJZC4AcU3nPoIkxQVAagdc5uNymS6MXfUtyV7/8/N7Z3U04oZC1PTHMwCMdw7qm/00zb3c09unqkKlXi6A0gLW0qr3GgoXxp94zQUgRgC4/bQuCPWAUs09gizWF+fA33KgOAeKc+BfngPPADTZyqf1PsyauuivLf1iEg9OD2atsh0LIB52bKfHQFW2Cy4HP+2hd0PRePpfv5/nljQRwBgS6MZV3Jalay+zoiIBZKuPqvfrAF9DzgMw7cW3pgAAAABJRU5ErkJggg==" alt="">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAY9JREFUWEftl79Kw1AUxr+T2ldwEJzcdNAmODgIFYS0PkCnSOLkY1SfwL2LtthFcRONILSDuKjppJNjNx+hNkdubSA0/0xyi6C548m55/y+74SbXELE6tiDEwY3ACxF5YTFzZpKIt62HWbiQ0vXWnH7J8mzq207jwC20jT2cv0Akxjh0tRVISR0BQDad4MmmI+yNBd7AgAJEEEA23kHsCIVIAYiDICzNhf7Sm5p2dhbH4p3IFAnZBzSAZjIsPRKN2qU3og8OPkAzF2rrhk/dVE6wPe46YyJrkx94zoJZC4AcU3nPoIkxQVAagdc5uNymS6MXfUtyV7/8/N7Z3U04oZC1PTHMwCMdw7qm/00zb3c09unqkKlXi6A0gLW0qr3GgoXxp94zQUgRgC4/bQuCPWAUs09gizWF+fA33KgOAeKc+BfngPPADTZyqf1PsyauuivLf1iEg9OD2atsh0LIB52bKfHQFW2Cy4HP+2hd0PRePpfv5/nljQRwBgS6MZV3Jalay+zoiIBZKuPqvfrAF9DzgMw7cW3pgAAAABJRU5ErkJggg=="
+                            alt="">
                         <a class="file" href="<%- path + file %>">
                             <%- file %>
                         </a>
                     </li>
                     <%})%>
     </ul>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        (function (window, $) {
+            document.addEventListener('dragover', function (e) {
+                e.stopPropagation();
+                //阻止浏览器默认打开文件的操作
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'copy';
+            });
+            // 多文件上传
+            document.addEventListener("drop", function (e) {
+                e.stopPropagation();
+                //阻止浏览器默认打开文件的操作
+                e.preventDefault();
+                var files = e.dataTransfer.files;
+                var formData = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    formData.append("file" + i, files[i]);
+                }
+                const url = `http://127.0.0.1:${<%- PORT %>}${window.location.pathname}`;
+                $.ajax({
+                    type: 'post',
+                    url: url,
+                    data: formData,
+                    contentType: false, //必须  禁止jQuery设置Content-Type请求头
+                    processData: false, //必须  禁止jQuery处理发送的数据
+                    // dataType: "json",
+                    success: function (res) {
+                        window.location.reload();
+                    },
+                });
+            });
+        })(window, $);
+    </script>
 </body>
 
 </html>
